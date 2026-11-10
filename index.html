@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Skyline — студия винила в Энгельсе. Нанесение плёнки, тонировка, перетяжка салона, шумоизоляция и EVA-коврики.">
+  <title>Skyline — студия винила в Энгельсе</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./business-config.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Skyline — на главную">
+      <span class="brand-mark" aria-hidden="true">S<span>.</span></span>
+      <span class="brand-copy"><strong data-brand>SKYLINE</strong><small>СТУДИЯ ВИНИЛА</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#services">УСЛУГИ</a>
+      <a href="#approach">О СТУДИИ</a>
+      <a href="#gallery">ГАЛЕРЕЯ</a>
+      <a href="#reviews">ОТЗЫВЫ</a>
+      <a href="#contacts">КОНТАКТЫ</a>
+    </nav>
+
+    <a class="header-cta" data-whatsapp-link href="https://wa.me/79372523222" target="_blank" rel="noopener">ОБСУДИТЬ ПРОЕКТ <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span>SKYLINE / ЭНГЕЛЬС</span></div>
+        <h1 id="heroTitle">ПЛЁНКА.<br>ФОРМА.<br><em>ХАРАКТЕР.</em></h1>
+        <p class="hero-description">
+          Оклейка винилом, тонировка, перетяжка салона и шумоизоляция.
+          Меняем внешний вид автомобиля и детали, которые создают комфорт.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#booking">ОБСУДИТЬ СВОЙ ПРОЕКТ <span>→</span></a>
+          <a class="button button-ghost" href="#services">НАПРАВЛЕНИЯ РАБОТ</a>
+        </div>
+        <div class="hero-note"><span class="live-dot"></span><span>СТУДИЯ ВИНИЛА · НАНЕСЕНИЕ ПЛЁНКИ · АВТОТЮНИНГ</span></div>
+      </div>
+
+      <div class="car-stage" id="carStage">
+        <div class="car-vignette" aria-hidden="true"></div>
+        <div class="car-floor-shadow" aria-hidden="true"></div>
+        <canvas id="carCanvas" aria-label="Интерактивная вращающаяся 3D-модель BMW M2 CS 2026"></canvas>
+        <div class="model-caption"><span class="caption-line"></span><span>BMW M2 CS / 2026</span></div>
+        <div class="viewer-controls" aria-label="Управление 3D-моделью">
+          <span class="drag-hint"><span class="drag-icon">↔</span> ВРАЩАЙТЕ МЫШЬЮ ИЛИ ПАЛЬЦЕМ</span>
+          <div class="viewer-buttons">
+            <button type="button" id="rotateLeft" aria-label="Повернуть модель влево">←</button>
+            <button type="button" id="rotateRight" aria-label="Повернуть модель вправо">→</button>
+            <button type="button" id="resetView" aria-label="Сбросить положение модели">↺</button>
+            <button type="button" id="autoRotate" class="auto-button active" aria-pressed="true">ПАУЗА</button>
+          </div>
+        </div>
+        <div class="model-loading" id="modelLoading">
+          <div class="loader-ring"></div>
+          <span id="loadingText">ЗАГРУЖАЕМ 3D-МОДЕЛЬ · 0%</span>
+          <div class="loading-track"><span id="loadingBar"></span></div>
+        </div>
+        <div class="model-error" id="modelError" hidden>
+          <strong>3D-модель не загрузилась</strong>
+          <span>Проверьте подключение к интернету и откройте сайт через локальный сервер.</span>
+        </div>
+      </div>
+
+      <div class="hero-index"><span>01</span><i></i><span>06</span></div>
+      <a class="scroll-cue" href="#services"><span>ЛИСТАЙТЕ ВНИЗ</span><b>↓</b></a>
+    </section>
+
+    <section class="services section-light" id="services">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> НАПРАВЛЕНИЯ SKYLINE</div>
+            <h2>ДЕТАЛИ, КОТОРЫЕ<br><em>МЕНЯЮТ АВТОМОБИЛЬ</em></h2>
+          </div>
+          <p class="section-intro">Подберите услугу под свою задачу. Состав работ, материалы и возможность выполнения лучше заранее согласовать со студией.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card service-card-wrap">
+            <span class="service-number">01</span>
+            <div class="service-art" aria-hidden="true"><span class="film-orbit orbit-a"></span><span class="film-orbit orbit-b"></span><span class="film-core">VINYL</span></div>
+            <div class="service-content"><h3>ОКЛЕЙКА<br>АВТОМОБИЛЯ</h3><p>Нанесение виниловой плёнки и изменение визуального образа автомобиля.</p><a href="#booking" class="text-link" data-service="Нанесение плёнки">ОБСУДИТЬ УСЛУГУ <span>↗</span></a></div>
+          </article>
+          <article class="service-card service-card-tint">
+            <span class="service-number">02</span>
+            <div class="service-art" aria-hidden="true"><span class="tint-pane pane-one"></span><span class="tint-pane pane-two"></span><span class="tint-pane pane-three"></span></div>
+            <div class="service-content"><h3>ТОНИРОВКА<br>И ПЛЁНКИ</h3><p>Тонировочные и защитные плёнки для автомобильных стёкол.</p><a href="#booking" class="text-link" data-service="Тонировка и защитные плёнки">ОБСУДИТЬ УСЛУГУ <span>↗</span></a></div>
+          </article>
+          <article class="service-card service-card-interior">
+            <span class="service-number">03</span>
+            <div class="service-art" aria-hidden="true"><span class="seat-shape"></span><span class="seat-stitch"></span></div>
+            <div class="service-content"><h3>ПЕРЕТЯЖКА<br>САЛОНА</h3><p>Обновление элементов интерьера автомобиля.</p><a href="#booking" class="text-link" data-service="Перетяжка салона">ОБСУДИТЬ УСЛУГУ <span>↗</span></a></div>
+          </article>
+          <article class="service-card service-card-sound">
+            <span class="service-number">04</span>
+            <div class="service-art" aria-hidden="true"><span class="sound-wave wave-one"></span><span class="sound-wave wave-two"></span><span class="sound-wave wave-three"></span></div>
+            <div class="service-content"><h3>ШУМОИЗОЛЯЦИЯ<br>САЛОНА</h3><p>Работы по звукоизоляции салона автомобиля.</p><a href="#booking" class="text-link" data-service="Шумоизоляция салона">ОБСУДИТЬ УСЛУГУ <span>↗</span></a></div>
+          </article>
+          <article class="service-card service-card-mats">
+            <span class="service-number">05</span>
+            <div class="service-art" aria-hidden="true"><div class="mat-shape"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="service-content"><h3>EVA-КОВРИКИ<br>И АКСЕССУАРЫ</h3><p>Автомобильные EVA-коврики и аксессуары.</p><a href="#booking" class="text-link" data-service="EVA-коврики и аксессуары">ОБСУДИТЬ УСЛУГУ <span>↗</span></a></div>
+          </article>
+        </div>
+
+        <div class="services-bottom"><span>НЕ УВЕРЕНЫ, ЧТО ВЫБРАТЬ?</span><a class="button button-dark" href="#booking">ОПИШИТЕ СВОЮ ЗАДАЧУ <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="approach section-dark" id="approach">
+      <div class="approach-visual" aria-hidden="true">
+        <div class="approach-orb orb-large"></div><div class="approach-orb orb-small"></div>
+        <div class="approach-stripe stripe-one"></div><div class="approach-stripe stripe-two"></div>
+        <div class="approach-visual-caption">SKYLINE / AUTO CUSTOM</div>
+        <div class="approach-visual-number">S.</div>
+      </div>
+      <div class="approach-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> КАК НАЧАТЬ</div>
+        <h2>ВАША ИДЕЯ.<br>НАШЕ <em>НАПРАВЛЕНИЕ.</em></h2>
+        <p>Расскажите, что хотите изменить в автомобиле. Обсудите со студией подходящую услугу, материалы и детали до визита.</p>
+        <div class="approach-points">
+          <div><span>01</span><strong>ОПИШИТЕ СВОЮ ЗАДАЧУ</strong></div>
+          <div><span>02</span><strong>ОБСУДИТЕ МАТЕРИАЛЫ И РАБОТЫ</strong></div>
+          <div><span>03</span><strong>СОГЛАСУЙТЕ ВРЕМЯ ВИЗИТА</strong></div>
+        </div>
+        <a class="button button-primary" data-whatsapp-link href="https://wa.me/79372523222" target="_blank" rel="noopener">НАПИСАТЬ В WHATSAPP <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="gallery section-light" id="gallery">
+      <div class="section-shell gallery-inner">
+        <div class="gallery-copy">
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> РЕАЛЬНЫЕ РАБОТЫ SKYLINE</div>
+          <h2>ЦВЕТ. БЛЕСК.<br><em>ЖИВОЙ РЕЗУЛЬТАТ.</em></h2>
+          <p>Добавили в сайт реальные фотографии студии Skyline из 2ГИС. Такой блок сразу показывает уровень работ: насыщенные цвета, чистая подача и внимание к деталям в оклейке, детейлинге и тюнинге.</p>
+          <div class="gallery-actions">
+            <a class="button button-dark" data-gallery-link href="https://2gis.ru/engels/gallery/firm/70000001006157383" target="_blank" rel="noopener">СМОТРЕТЬ ЕЩЁ ФОТО В 2ГИС <span>↗</span></a>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card gallery-card-featured">
+            <img src="./assets/skyline-work-1.png" alt="Kia в студии Skyline после оклейки" loading="lazy">
+            <figcaption><strong>KIA</strong><span>чистый премиальный оттенок и аккуратная подача</span></figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-tall">
+            <img src="./assets/skyline-work-2.png" alt="Фиолетовый седан в хром-плёнке в студии Skyline" loading="lazy">
+            <figcaption><strong>ХРОМ / ФИОЛЕТОВЫЙ</strong><span>яркий эффектный проект</span></figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="./assets/skyline-work-3.png" alt="Чёрный BMW в студии Skyline" loading="lazy">
+            <figcaption><strong>BMW</strong><span>глубокий чёрный глянец</span></figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="./assets/skyline-work-4.png" alt="Фиолетовый Range Rover в студии Skyline" loading="lazy">
+            <figcaption><strong>RANGE ROVER</strong><span>насыщенный цвет с акцентной подачей</span></figcaption>
+          </figure>
+          <figure class="gallery-card gallery-card-wide">
+            <img src="./assets/skyline-work-5.png" alt="Белый Toyota RAV4 в студии Skyline" loading="lazy">
+            <figcaption><strong>TOYOTA RAV4</strong><span>чистый светлый образ и аккуратные линии</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews section-dark" id="reviews">
+      <div class="section-shell reviews-inner">
+        <div class="reviews-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> ОТЗЫВЫ КЛИЕНТОВ</div>
+          <h2>РЕАЛЬНЫЙ ОПЫТ.<br><em>ОТКРЫТАЯ ОЦЕНКА.</em></h2>
+          <p>Оценки и отзывы Skyline доступны в 2ГИС. Посмотрите мнения клиентов и задайте студии вопросы перед записью.</p>
+        </div>
+        <div class="rating-panel">
+          <div class="rating-score">3.4<span>/5</span></div>
+          <div class="rating-stars" aria-label="Рейтинг 3,4 из 5">★★★<span>★★</span></div>
+          <div class="rating-meta">11 ОЦЕНОК · 9 ОТЗЫВОВ</div>
+          <a class="rating-link" data-reviews-link href="https://2gis.ru/engels/firm/70000001006157383/tab/reviews" target="_blank" rel="noopener">ЧИТАТЬ ОТЗЫВЫ <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking section-light" id="booking">
+      <div class="booking-shell">
+        <div class="booking-copy">
+          <div class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> СВЯЗЬ СО SKYLINE</div>
+          <h2>РАССКАЖИТЕ,<br>ЧТО <em>ХОТИТЕ ИЗМЕНИТЬ.</em></h2>
+          <p>Заполните короткую форму — откроется WhatsApp с готовым сообщением для студии.</p>
+          <div class="booking-aside"><span class="aside-dot"></span><span>БЫСТРО ОБСУДИМ ВАШ ЗАПРОС</span></div>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+          <label><span>ВАШЕ ИМЯ</span><input name="name" type="text" placeholder="Как к вам обращаться" autocomplete="name" required></label>
+          <label><span>ТЕЛЕФОН ДЛЯ СВЯЗИ</span><input name="phone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></label>
+          <label><span>ИНТЕРЕСУЮЩАЯ УСЛУГА</span>
+            <select name="service">
+              <option value="Не определился — нужна консультация">Выберите направление</option>
+              <option>Нанесение виниловой плёнки</option>
+              <option>Тонировка и защитные плёнки</option>
+              <option>Перетяжка салона</option>
+              <option>Шумоизоляция салона</option>
+              <option>EVA-коврики и аксессуары</option>
+              <option>Другая услуга / консультация</option>
+            </select>
+          </label>
+          <label><span>АВТОМОБИЛЬ И ПОЖЕЛАНИЯ</span><textarea name="message" rows="3" placeholder="Марка, модель и что планируете сделать"></textarea></label>
+          <button class="button button-primary form-submit" type="submit">ПЕРЕЙТИ В WHATSAPP <span>↗</span></button>
+          <p class="form-status" id="formStatus" aria-live="polite">Сообщение будет подготовлено автоматически. Отправка произойдёт после вашего подтверждения в WhatsApp.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="contacts section-light" id="contacts">
+      <div class="section-shell">
+        <div class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> КОНТАКТЫ И ЛОКАЦИЯ</div>
+        <div class="contacts-row">
+          <div><h2>SKYLINE<br><em>В ЭНГЕЛЬСЕ</em></h2><p class="contacts-note">Студия винила · Нестерова, 66/1 · 1 этаж</p></div>
+          <a class="button button-dark" data-map-link href="https://2gis.ru/engels/firm/70000001006157383" target="_blank" rel="noopener">ПОСТРОИТЬ МАРШРУТ <span>↗</span></a>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card contact-address"><span class="contact-label">АДРЕС</span><strong>Нестерова, 66/1</strong><span>Энгельс, Саратовская область, 413115</span><a data-map-link href="https://2gis.ru/engels/firm/70000001006157383" target="_blank" rel="noopener">ОТКРЫТЬ НА КАРТЕ ↗</a></div>
+          <div class="contact-card"><span class="contact-label">ПОЗВОНИТЬ</span><a class="contact-phone" href="tel:+79536308065">+7 953 630-80-65</a><a class="contact-phone" href="tel:+79372523222">+7 937 252-32-22</a><span>Перед визитом уточните время по телефону.</span></div>
+          <div class="contact-card"><span class="contact-label">НАПИСАТЬ</span><strong>WhatsApp</strong><span>Обсудите услугу и согласуйте время.</span><a data-whatsapp-link href="https://wa.me/79372523222" target="_blank" rel="noopener">НАПИСАТЬ В WHATSAPP ↗</a></div>
+          <div class="contact-card"><span class="contact-label">ОПЛАТА</span><strong>Удобный способ</strong><span>Карта · наличные · перевод · QR-код</span><small>В 2ГИС также указана доставка.</small></div>
+        </div>
+
+        <a class="map-panel" data-map-link href="https://2gis.ru/engels/firm/70000001006157383" target="_blank" rel="noopener" aria-label="Открыть Skyline на карте 2ГИС">
+          <div class="map-grid" aria-hidden="true"></div><div class="map-route route-one"></div><div class="map-route route-two"></div>
+          <div class="map-pin"><span class="pin-pulse"></span><span class="pin-core"></span></div>
+          <div class="map-caption"><small>SKYLINE / СТУДИЯ ВИНИЛА</small><strong>Н Е С Т Е Р О В А ,  6 6 / 1</strong><span>ЭНГЕЛЬС · САРАТОВСКАЯ ОБЛАСТЬ</span></div>
+          <span class="map-open">ОТКРЫТЬ 2ГИС ↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">S<span>.</span></span><span class="brand-copy"><strong>SKYLINE</strong><small>СТУДИЯ ВИНИЛА</small></span></a>
+    <span class="footer-copy">© <span id="year"></span> SKYLINE · ЭНГЕЛЬС</span>
+    <a class="footer-top" href="#top">НАВЕРХ ↑</a>
+    <div class="model-credit">3D MODEL: 2026 BMW M2 CS BY DDIAZ DESIGN · CC BY-NC-SA 4.0 · <a href="https://sketchfab.com/3d-models/2026-bmw-m2-cs-c1d48a2fad5146948f9297d38aaf0df9" target="_blank" rel="noopener">SKETCHFAB</a></div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
