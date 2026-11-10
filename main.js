@@ -220,7 +220,7 @@ async function fetchCompressedModel(url) {
 
 function loadModel() {
   const loader = new GLTFLoader();
-  fetchCompressedModel("./assets/bmw-m2-cs.glb.gz")
+  fetchCompressedModel("./bmw-m2-cs.glb.gz")
     .then((buffer) => {
       loader.parse(buffer, "", (gltf) => {
         model = gltf.scene;
