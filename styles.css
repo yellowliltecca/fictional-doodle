@@ -155,3 +155,8 @@
   .studio-panel-wordmark { flex-direction: column; gap: 6px; }
   .studio-panel-wordmark span { padding: 0; border: 0; }
 }
+
+/* Make the entire before/after photo draggable on touch screens. */
+.compare-visual{touch-action:pan-y;cursor:ew-resize}
+.compare-range{pointer-events:none}
+.compare-range:focus-visible{pointer-events:auto}
