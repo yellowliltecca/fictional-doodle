@@ -160,3 +160,11 @@
 .compare-visual{touch-action:pan-y;cursor:ew-resize}
 .compare-range{pointer-events:none}
 .compare-range:focus-visible{pointer-events:auto}
+
+/* Dedicated, finger-friendly blue drag handle for before/after comparisons. */
+.compare-visual{touch-action:pan-y;cursor:default}
+.compare-range{pointer-events:none}
+.compare-handle{position:absolute;z-index:8;top:50%;left:var(--split);width:64px;height:64px;transform:translate(-50%,-50%);border:3px solid #fff;border-radius:50%;background:#195bff;box-shadow:0 5px 20px rgba(0,0,0,.35);cursor:ew-resize;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.compare-handle.is-dragging{box-shadow:0 0 0 7px rgba(25,91,255,.2),0 5px 20px rgba(0,0,0,.4)}
+.compare-handle:focus-visible{outline:3px solid #fff;outline-offset:5px}
+@media(max-width:760px){.compare-handle{width:64px;height:64px}}
