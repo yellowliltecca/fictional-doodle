@@ -1,0 +1,32 @@
+/* Original-resolution photos: PNG is preferred, existing WebP remains a temporary fallback. */
+.hero-photo {
+  background-image:
+    url("./assets/hero-bmw-purple.png"),
+    url("./assets/hero-bmw-purple.webp");
+  background-size: cover, cover;
+  background-position: center right, center right;
+  background-repeat: no-repeat;
+}
+
+.compare-bmw .compare-photo {
+  background-image:
+    url("./assets/bmw-comparison.png"),
+    url("./assets/bmw-comparison.webp");
+  background-size: 100% 200%, 100% 200%;
+  background-repeat: no-repeat;
+}
+
+.compare-hyundai .compare-photo {
+  background-image:
+    url("./assets/hyundai-comparison.png"),
+    url("./assets/hyundai-comparison.webp");
+  background-size: 100% 200%, 100% 200%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 760px) {
+  .hero-photo {
+    background-size: auto 100%, auto 100%;
+    background-position: 68% center, 68% center;
+  }
+}
