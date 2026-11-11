@@ -29,6 +29,23 @@
     if (!range) return;
     const update = () => comparison.style.setProperty("--split", range.value + "%");
     range.addEventListener("input", update);
+    // Pointer Events work consistently in iOS Safari and Telegram's in-app browser.
+    // The whole image is draggable, not just the tiny native range thumb.
+    const setFromPointer = (event) => {
+      const rect = comparison.getBoundingClientRect();
+      if (!rect.width) return;
+      const percent = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+      range.value = String(Math.round(percent));
+      update();
+    };
+    comparison.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      comparison.setPointerCapture(event.pointerId);
+      setFromPointer(event);
+    });
+    comparison.addEventListener("pointermove", (event) => {
+      if (comparison.hasPointerCapture(event.pointerId)) setFromPointer(event);
+    });
     update();
   });
 
