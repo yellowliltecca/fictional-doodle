@@ -69,3 +69,89 @@
   .hero-photo { inset: auto 0 0 auto; width: 100%; height: 58%; background-size: auto 100%, auto 200%; background-position: 68% center, 56% bottom; opacity: .88; }
   .hero-shade { background: linear-gradient(180deg,#080b10 0%,rgba(8,11,16,.94) 34%,rgba(8,11,16,.5) 61%,rgba(8,11,16,.2) 100%),linear-gradient(90deg,rgba(8,11,16,.6),transparent 85%); }
 }
+
+
+/* SKYLINE identity: clear wordmark in the header and a complete studio panel. */
+.brand-text-only {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+.brand-text-only .brand-name {
+  display: block;
+  font: 600 21px/1 var(--display);
+  letter-spacing: 2.6px;
+}
+.brand-text-only .brand-name small {
+  display: block;
+  margin-top: 6px;
+  color: #aab5c5;
+  font: 700 7px/1 var(--font);
+  letter-spacing: 2px;
+}
+
+.studio-panel-center {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 70px 20px;
+  pointer-events: none;
+}
+.studio-panel-mark {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  color: rgba(255,255,255,.96);
+  font: 600 clamp(150px, 17vw, 220px)/.72 var(--display);
+  letter-spacing: -14px;
+  text-shadow: 0 14px 42px rgba(0,0,0,.28);
+}
+.studio-panel-mark span { color: var(--blue-bright); }
+.studio-panel-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: white;
+}
+.studio-panel-wordmark strong {
+  font: 600 17px/1 var(--display);
+  letter-spacing: 3.6px;
+}
+.studio-panel-wordmark span {
+  padding-left: 13px;
+  border-left: 1px solid rgba(255,255,255,.3);
+  color: #aab5c5;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+@media (max-width: 760px) {
+  .brand-text-only { margin-right: 0; }
+  .brand-text-only .brand-name { font-size: 16px; letter-spacing: 2px; }
+  .brand-text-only .brand-name small { margin-top: 5px; font-size: 6px; letter-spacing: 1.5px; }
+  .studio-panel { min-height: 340px; padding: 20px; }
+  .studio-panel-center { gap: 9px; padding: 58px 16px; }
+  .studio-panel-mark { font-size: clamp(130px, 35vw, 180px); letter-spacing: -10px; }
+  .studio-panel-wordmark { gap: 9px; }
+  .studio-panel-wordmark strong { font-size: 15px; letter-spacing: 2.8px; }
+  .studio-panel-wordmark span { padding-left: 9px; font-size: 6px; letter-spacing: 1px; }
+  .studio-panel-top, .studio-panel-bottom { font-size: 7px; letter-spacing: 1px; }
+  .studio-panel-bottom { right: 20px; bottom: 20px; left: 20px; }
+  .studio-panel-bottom strong { font-size: 19px; }
+}
+@media (max-width: 390px) {
+  .brand-text-only .brand-name { font-size: 14px; }
+  .brand-text-only .brand-name small { font-size: 5.5px; }
+  .studio-panel-wordmark { flex-direction: column; gap: 6px; }
+  .studio-panel-wordmark span { padding: 0; border: 0; }
+}
