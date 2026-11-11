@@ -26,25 +26,36 @@
 
   document.querySelectorAll("[data-compare]").forEach((comparison) => {
     const range = comparison.querySelector(".compare-range");
-    if (!range) return;
-    const update = () => comparison.style.setProperty("--split", range.value + "%");
-    range.addEventListener("input", update);
-    // Pointer Events work consistently in iOS Safari and Telegram's in-app browser.
-    // The whole image is draggable, not just the tiny native range thumb.
-    const setFromPointer = (event) => {
+    const handle = comparison.querySelector(".compare-handle");
+    if (!range || !handle) return;
+    const update = () => {
+      comparison.style.setProperty("--split", range.value + "%");
+      handle.setAttribute("aria-valuenow", range.value);
+    };
+    const moveTo = (clientX) => {
       const rect = comparison.getBoundingClientRect();
       if (!rect.width) return;
-      const percent = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-      range.value = String(Math.round(percent));
+      range.value = String(Math.round(Math.max(0, Math.min(100, (clientX - rect.left) * 100 / rect.width))));
       update();
     };
-    comparison.addEventListener("pointerdown", (event) => {
+    handle.addEventListener("pointerdown", (event) => {
       if (event.pointerType === "mouse" && event.button !== 0) return;
-      comparison.setPointerCapture(event.pointerId);
-      setFromPointer(event);
+      event.preventDefault();
+      handle.setPointerCapture(event.pointerId);
+      handle.classList.add("is-dragging");
     });
-    comparison.addEventListener("pointermove", (event) => {
-      if (comparison.hasPointerCapture(event.pointerId)) setFromPointer(event);
+    handle.addEventListener("pointermove", (event) => {
+      if (handle.hasPointerCapture(event.pointerId)) moveTo(event.clientX);
+    });
+    const stop = () => handle.classList.remove("is-dragging");
+    handle.addEventListener("pointerup", stop);
+    handle.addEventListener("pointercancel", stop);
+    handle.addEventListener("keydown", (event) => {
+      const delta = event.key === "ArrowLeft" ? -2 : event.key === "ArrowRight" ? 2 : 0;
+      if (!delta) return;
+      event.preventDefault();
+      range.value = String(Math.max(0, Math.min(100, Number(range.value) + delta)));
+      update();
     });
     update();
   });
